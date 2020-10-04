@@ -1,32 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="text-gray-dark-1 font-body">
+      <router-view />
     </div>
-    <router-view />
+    <app-bottom-bar v-if="$route.name !== 'welcome'" />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import AppBottomBar from '@/components/AppBottomBar'
 
-#nav {
-  padding: 30px;
+export default {
+  components: {
+    AppBottomBar
+  }
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
